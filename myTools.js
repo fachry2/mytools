@@ -1,9 +1,6 @@
 #! /usr/bin/env node
-const { Console } = require("console");
 const yargs = require("yargs");
 const fs = require('fs');
-
-// console.log("all", yargs.argv)
 
 function showHelp() {   
     console.log("\nUsage: mytools <location file> -t <type output file> - o <location output file>");  
@@ -18,16 +15,6 @@ const validateJSON = (data) => {
       return null;
     }
   }
-const readFile = async filePath => {
-    try {
-        const data = await fs.readFileSync(filePath, 'utf-8')
-        return data
-    }
-    catch(err) {
-        console.log(err)
-    }
-}
-
 
 try {
     let typeOutput = yargs.argv.t || 'text'
